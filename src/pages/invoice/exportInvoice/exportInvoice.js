@@ -3,9 +3,9 @@ import React from 'react'
 function ExportInvoice() {
   return (
     <div>
-      from ExportInvoice;
+      from ExportInvoice
     </div>
   )
 }
 
-export default ExportInvoice;
+export default ExportInvoice

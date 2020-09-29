@@ -8,4 +8,4 @@ function ImportInvoice() {
   )
 }
 
-export default ImportInvoice;
+export default ImportInvoice
