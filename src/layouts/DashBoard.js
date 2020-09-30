@@ -1,10 +1,13 @@
 import React from 'react'
+import Sidebar from '../components/Sidebar';
+import Routers from '../router/Router';
 
-function DashBoard() {
+function DashBoard(props) {
   return (
-    <div>
-      from dash board
-    </div>
+    <>
+      <Sidebar />
+      <Routers />
+    </>
   )
 }
 

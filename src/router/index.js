@@ -18,6 +18,14 @@ import DetailCategory from "../pages/category/detailCategory";
 import AddNewCategory from '../pages/category/addNewCategory';
 import EditCategory from '../pages/category/editCategory'
 import DeleteCategory from '../pages/category/deleteCategory'
+//Export Invoice 
+import DetailExportInvoice from "../pages/invoice/exportInvoice/detailExportInvoice";
+import ViewExportInvoice from '../pages/invoice/exportInvoice/viewExportInvoice';
+import ExportInvoice from '../pages/invoice/exportInvoice/exportInvoice';
+//Import Invoice 
+import DetailImportInvoice from "../pages/invoice/importInvoice/detailImportInvoice";
+import ViewImportInvoice from '../pages/invoice/importInvoice/viewImportInvoice';
+import ImportInvoice from '../pages/invoice/importInvoice/importProduct';
 
 const product = {
   name: 'Product',
@@ -28,21 +36,25 @@ const product = {
     {
       path: '/product/detail-product',
       name: 'Detail Product',
+      key: '1',
       component: DetailProduct,
     },
     {
       path: '/product/add-product',
       name: 'Add New Product',
+      key: '2',
       component: AddNewProduct,
     },
     {
       path: '/product/edit-product',
       name: 'Edit Product',
+      key: '3',
       component: EditProduct,
     },
     {
       path: '/product/delete-product',
       name: 'Delete Product',
+      key: '4',
       component: DeleteProduct,
     },
   ]
@@ -57,21 +69,25 @@ const supplier = {
     {
       path: '/supplier/detail-supplier',
       name: 'Detail Supplier',
+      key: '5',
       component: DetailSupplier,
     },
     {
       path: '/supplier/add-supplier',
       name: 'Add New Supplier',
+      key: '6',
       component: AddNewSupplier,
     },
     {
       path: '/supplier/edit-supplier',
       name: 'Edit Supplier',
+      key: '7',
       component: EditSupplier,
     },
     {
       path: '/supplier/delete-supplier',
       name: 'Delete Supplier',
+      key: '8',
       component: DeleteSupplier,
     },
   ]
@@ -86,21 +102,25 @@ const customer = {
     {
       path: '/customer/detail-customer',
       name: 'Detail Customer',
+      key: '9',
       component: DetailCustomer,
     },
     {
       path: '/customer/add-customer',
       name: 'Add New Customer',
+      key: '10',
       component: AddNewCustomer,
     },
     {
       path: '/customer/edit-customer',
       name: 'Edit Customer',
+      key: '11',
       component: EditCustomer,
     },
     {
       path: '/customer/delete-customer',
       name: 'Delete Customer',
+      key: '12',
       component: DeleteCustomer,
     },
   ]
@@ -115,21 +135,25 @@ const category = {
     {
       path: '/category/detail-category',
       name: 'Detail Category',
+      key: '13',
       component: DetailCategory,
     },
     {
       path: '/category/add-category',
       name: 'Add New Category',
+      key: '14',
       component: AddNewCategory,
     },
     {
       path: '/category/edit-category',
       name: 'Edit Category',
+      key: '15',
       component: EditCategory,
     },
     {
       path: '/category/delete-category',
       name: 'Delete Category',
+      key: '16',
       component: DeleteCategory,
     },
   ]
@@ -148,15 +172,21 @@ const invoice = {
       children: [
         {
           name: 'View Export Invoice',
+          path: '/invoice/view-export-invoice',
           key: '17',
+          component: ViewExportInvoice,
         },
         {
           name: 'Detail Export Invoice',
+          path: '/invoice/detail-export-invoice',
           key: '18',
+          component: DetailExportInvoice,
         },
         {
           name: 'Export Invoice',
+          path: '/invoice/export-export-invoice',
           key: '19',
+          component: ExportInvoice,
         }
       ]
     },
@@ -168,14 +198,20 @@ const invoice = {
         {
           name: 'View Import Invoice',
           key: '20',
+          path: '/invoice/view-import-invoice',
+          component: ViewImportInvoice,
         },
         {
           name: 'Detail Import Invoice',
           key: '21',
+          path: '/invoice/detail-import-invoice',
+          component: DetailImportInvoice,
         },
         {
           name: 'Import Product',
           key: '22',
+          path: '/invoice/import-import-invoice',
+          component: ImportInvoice,
         }
       ]
     }

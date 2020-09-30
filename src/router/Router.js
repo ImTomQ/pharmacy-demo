@@ -5,6 +5,7 @@ import {
   BrowserRouter
 } from "react-router-dom";
 import {routes} from './index';
+import {routesSubmenu} from './index';
 
 
 function Routers() {
@@ -13,22 +14,18 @@ function Routers() {
     <>
       <BrowserRouter>
         <Switch>
-          {routes.map((route, index) => route.children ? (route.children.map((routeChildren, index) => (
-            <Route
-              key={index}
-              path={routeChildren.path}
-              exact
-              component={routeChildren.component}
+          {routes.map(route => route.children.map(childrenRoute => (
+            <Route 
+            path={childrenRoute.path}
+            component={childrenRoute.component}
             />
-            )))
-          : (
+            )))}
+          {routesSubmenu.map(route => route.submenu.map(submenuRoute => submenuRoute.children.map(childrenRoute => (
             <Route
-              key={index}
-              path={route.path}
-              exact
-              component={route.component}
+            path={childrenRoute.path}
+            component={childrenRoute.component}
             />
-            ))}
+            ))))}
         </Switch>
       </BrowserRouter>
     </>

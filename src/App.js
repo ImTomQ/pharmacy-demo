@@ -1,14 +1,11 @@
 import React from 'react'
-import Sider from './components/Sidebar';
-import Routers from './router/Router';
+import DashBoard from './layouts/DashBoard'
 
 function App() {
   return (
     <>
-      <Routers />
-      <Sider /> 
+      <DashBoard />
     </>
   )
 }
-
 export default App

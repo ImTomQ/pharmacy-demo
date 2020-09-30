@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { withRouter, NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { withRouter, NavLink, Link, Router, BrowserRouter } from 'react-router-dom';
 import { Menu, Switch } from 'antd';
 import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 import {routes} from '../../router/index';
@@ -7,7 +7,7 @@ import { routesSubmenu } from "../../router/index";
 
 const { SubMenu } = Menu;
 
-function Sider() {
+function Sidebar() {
 
   const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4', 'sub5'];
   const [state, setState] = useState({ theme: 'dark', current: '1', openKeys: ['sub1'], });
@@ -26,18 +26,19 @@ function Sider() {
   const onOpenChange = openKeys => {
     const latestOpenKey = openKeys.find(key => state.openKeys.indexOf(key) === -1);
 
-    !!rootSubmenuKeys && (rootSubmenuKeys.indexOf(latestOpenKey) === -1) 
-    ?
+    if(rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setState({ ...state, openKeys })
-    :
+    } else {
       setState({
         ...state,
         openKeys: latestOpenKey ? [latestOpenKey] : [],
-      });
+      })
+    }
   };
 
   return (
     <>
+      <BrowserRouter>
       <Switch
         checked={state.theme === "dark"}
         onChange={changeTheme}
@@ -45,7 +46,7 @@ function Sider() {
         unCheckedChildren="Light"
       />
       <Menu
-        className="h-100vh w-256"
+        className="menu-sidebar"
         theme={state.theme}
         onClick={handleClick}
         defaultOpenKeys={["sub1"]}
@@ -55,11 +56,15 @@ function Sider() {
         openKeys={state.openKeys}
       >
         {routes.map(route => (
-              <SubMenu key={route.key} title={route.name}>
-                {route.children.map((childrenRoute, key) => (
-                  <Menu.Item key={key + 1}>{childrenRoute.name}</Menu.Item>
-                ))}
-              </SubMenu>
+          <SubMenu key={route.key} title={route.name}>
+            {route.children.map((childrenRoute) => (
+              <Menu.Item key={childrenRoute.key}>
+                <Link to={childrenRoute.path}>
+                  {childrenRoute.name}
+                </Link>
+              </Menu.Item>
+            ))}
+          </SubMenu>
         ))}
         {routesSubmenu.map((route) => (
           <SubMenu key={route.key} title={route.name}>
@@ -67,16 +72,19 @@ function Sider() {
               <SubMenu key={submenuRoute.key} title={submenuRoute.name}>
                 {submenuRoute.children.map(childrenRoute => (
                   <Menu.Item key={childrenRoute.key}>
-                    {childrenRoute.name}
-                  </Menu.Item>
+                    <Link to={childrenRoute.path}>
+                      {childrenRoute.name}
+                    </Link>
+                  </Menu.Item>  
                 ))}
               </SubMenu>
             ))}
           </SubMenu>
         ))}
       </Menu>
+      </BrowserRouter>
     </>
   );
 }
 
-export default Sider;
+export default Sidebar;
