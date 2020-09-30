@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Menu, Switch } from "antd";
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { MailOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { routes } from '../../router/index';
 import { routesSubmenu } from "../../router/index";
@@ -47,12 +47,12 @@ function Sidebar() {
 
   return (
     <>
-      <Switch
+      {/* <Switch
         checked={state.theme === "dark"}
         onChange={changeTheme}
         checkedChildren="Dark"
         unCheckedChildren="Light"
-      />
+      /> */}
       <Menu
         mode="inline"
         openKeys={state.openKeys}
