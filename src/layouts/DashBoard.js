@@ -1,12 +1,20 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar';
 import Routers from '../router/Router';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function DashBoard(props) {
+function DashBoard() {
   return (
     <>
-      <Sidebar />
-      <Routers />
+    <Sidebar />
+      <Router>
+        <Routers />
+      </Router>
     </>
   )
 }

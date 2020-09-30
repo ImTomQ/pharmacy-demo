@@ -1,6 +1,7 @@
 import React from 'react'
 
-function AddNewProduct() {
+function AddNewProduct(props) {
+  console.log(props);
   return (
     <div>
       from add new product

@@ -1,6 +1,7 @@
 import React from 'react'
 
-function DeleteProduct() {
+function DeleteProduct(props) {
+  console.log(props);
   return (
     <div>
       from delete product
