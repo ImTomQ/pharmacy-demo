@@ -182,4 +182,5 @@ const invoice = {
   ],
 }
 
-export const routes = [ product, supplier, customer, category, ];
+export const routes = [ product, supplier, customer, category ];
+export const routesSubmenu = [ invoice ];
